@@ -27,5 +27,10 @@ export default defineConfig({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally'],
     })
-  ]
+  ],
+  build: {
+    target: 'es2015',
+    // target: 'chrome58',
+    minify: 'terser',
+  }
 })

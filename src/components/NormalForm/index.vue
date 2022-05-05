@@ -119,7 +119,7 @@ export default {
     close() {
       this.dialogStatus = false
     },
-    @debounce(600)
+    // @debounce(600)
     async submit() {
       const { normalForm, searchForm } = this
       if (typeof normalForm?.submit === 'function') {
