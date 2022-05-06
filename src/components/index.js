@@ -1,5 +1,5 @@
-import NormalTable from '@/components/NormalTable/index.vue'
-// import NormalForm from '@/components/NormalForm/index.vue'
+import NormalTable from './NormalTable/index.vue'
+// import NormalForm from './NormalForm/index.vue'
 
 const Components = {
   NormalTable,
@@ -22,7 +22,10 @@ const install = function (Vue) {
 // if (typeof window !== 'undefined' && window.Vue) {
 //   install(window.Vue)
 // }
-
+export {
+  Components,
+  install
+}
 export default {
   Components,
   install
