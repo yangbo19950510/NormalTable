@@ -2,7 +2,7 @@ import { createVuePlugin } from 'vite-plugin-vue2'
 import { defineConfig } from "vite"
 import legacy from '@vitejs/plugin-legacy'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import { resolve } from 'path'
+import path from 'path'
 
 function resolves(dir) {
   return path.join(__dirname, dir)
@@ -31,7 +31,7 @@ export default defineConfig({
   input: '/src/components/index.js',
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/main.js'), // 设置入口文件
+      entry: path.resolve(__dirname, './src/components/index.js'), // 设置入口文件
       name: 'nf-tool', // 起个名字，安装、引入用
       fileName: (format) => `nf-tool.${format}.js` // 打包后的文件名
     },
