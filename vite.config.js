@@ -28,7 +28,7 @@ export default defineConfig({
       modernPolyfills: ['es.promise.finally'],
     })
   ],
-  input: '/src/components/index.js',
+  // input: '/src/components/index.js',
   build: {
     lib: {
       entry: path.resolve(__dirname, './src/components/index.js'), // 设置入口文件

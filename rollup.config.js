@@ -2,7 +2,6 @@ import vue from 'rollup-plugin-vue'
 import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import babel from '@rollup/plugin-babel'
-// import jsx from 'rollup-plugin-jsx'
 import { resolve as pathResolve } from 'path'
 import alias from '@rollup/plugin-alias'
 // 这个 rollup-plugin-node-resolve 插件可以告诉 Rollup 如何查找外部模块。 安装它...
@@ -38,21 +37,20 @@ module.exports = [
         // Explicitly convert template to render function
         compileTemplate: true
       }),
-      babel({
-        exclude: 'node_modules/**',
-        extensions: ['.js', '.jsx', '.vue'],
-        babelHelpers: 'bundled'
-      }),
-      // jsx(),
+      commonjs(),
       alias({
         entries: [
           { find: '@', replacement: pathResolve(__dirname, './src') },
         ],
         customResolver
       }),
-      commonjs(),
       resolve(),
-      terser()
+      terser(),
+      babel({
+        exclude: 'node_modules/**',
+        extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
+        babelHelpers: 'bundled'
+      }),
     ],
     build: {
       lib: {
