@@ -1,18 +1,20 @@
 import vue from 'rollup-plugin-vue'
-import commonjs from 'rollup-plugin-commonjs'
+import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
-import babel from '@rollup/plugin-babel'
+import { babel } from '@rollup/plugin-babel'
 import { resolve as pathResolve } from 'path'
 import alias from '@rollup/plugin-alias'
 // 这个 rollup-plugin-node-resolve 插件可以告诉 Rollup 如何查找外部模块。 安装它...
-import resolve from 'rollup-plugin-node-resolve';
+import nodeResolve from '@rollup/plugin-node-resolve';
 
-const customResolver = resolve({
-  extensions: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss']
-})
+// const customResolver = pathResolve({
+//   extensions: ['.vue', '.js', '.jsx', '.json', '.sass', '.scss']
+// })
+// const projectRootDir = pathResolve(__dirname)
+// console.error(customResolver, 'projectRootDir')
 module.exports = [
   {
-    input: 'src/components/index.js',
+    input: './src/components/index.js',
     output: [
       // {
       //   file: './dist/my-lib-umd.js',
@@ -22,35 +24,38 @@ module.exports = [
       //   //这样，在通过<script>标签引入时，才能通过name访问到export的内容。
       // },
       {
+        exports: 'auto',
         file: 'dist/es.js',
         format: 'es'
       },
       {
+        exports: 'auto',
         file: 'dist/cjs.js',
         format: 'cjs'
       }
     ],
     plugins: [
+      nodeResolve({
+        extensions: ['.vue', '.jsx', '.js']
+      }),
+      commonjs(),
+      alias({
+        entries: [
+          { find: '@', replacement: pathResolve(__dirname, './src') },
+        ]
+      }),
       vue({
         // Dynamically inject css as a <style> tag
         css: true, 
         // Explicitly convert template to render function
         compileTemplate: true
       }),
-      commonjs(),
-      alias({
-        entries: [
-          { find: '@', replacement: pathResolve(__dirname, './src') },
-        ],
-        customResolver
-      }),
-      resolve(),
-      terser(),
       babel({
         exclude: 'node_modules/**',
         extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
-        babelHelpers: 'bundled'
+        babelHelpers: 'runtime'
       }),
+      terser(),
     ],
     build: {
       lib: {

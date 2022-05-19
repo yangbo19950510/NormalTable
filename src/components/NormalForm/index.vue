@@ -7,8 +7,7 @@
   >
     <el-form ref="normalForm" :model="searchForm" :label-width="normalForm.labelWidth || '180px'">
       <el-form-item v-for="item in getFormList" :key="item.prop" :class="normalForm.inline ? 'form_itme' : ''" v-bind="allBind(item)">
-        <!-- <JsxRender v-if="item.type === 'jsx'" :r="item.render" :row="searchForm" /> -->
-        <div v-else-if="item.render" v-html="item.render" />
+        <JsxRender v-if="item.render" :r="item.render" :row="searchForm" />
         <component
           v-else-if="componentsData[item.tag]"
           :is="componentsData[item.tag]"
@@ -27,15 +26,15 @@
 </template>
 
 <script>
-// import { JsxRender } from "@/components/render"
+import { JsxRender } from "@/components/render"
 import { EVENT_NAME, COMPONENTS_NAME } from '@/components/constants.js'
 import NormalSelect from "@/components/NormalSelect/index.vue"
 import NormalPicker from "@/components/NormalDate/datePicker.vue"
 import NormalDate from "@/components/NormalDate/date.vue"
-import { debounce } from '@/utils/decorator'
+// import { debounce } from '@/utils/decorator'
 export default {
   name: 'NormalForm',
-  components: { NormalSelect, NormalDate, NormalPicker },
+  components: { NormalSelect, NormalDate, NormalPicker, JsxRender },
   props: {
     normalForm: {
       type: Object,
@@ -88,6 +87,11 @@ export default {
   },
   methods: {
     open(title = 'title', data = {}) {
+      this.title = title
+      this.dialogStatus = true
+      this.searchForm = JSON.parse(JSON.stringify(data))
+    },
+    openFilter(title = 'title', data = {}) {
       this.title = title
       this.dialogStatus = true
       const { getFormBefore: getFormList } = this

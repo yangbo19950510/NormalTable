@@ -7,15 +7,18 @@
         <NormalTable ref="NormalTable" :tables="tables" />
       </el-container>
     </el-container>
+    <NormalForm ref="NormalForm" :normalForm="normalForm" />
   </div>
 </template>
 <script>
 // import { debounce } from '@/utils/decorator'
 import NormalTable from "@/components/NormalTable/index.vue"
+import NormalForm from "@/components/NormalForm/index.vue"
 export default {
   name: 'App',
   components: {
-    NormalTable
+    NormalTable,
+    NormalForm
   },
   data() {
     return {
@@ -89,8 +92,10 @@ export default {
             return [
               {
                 label: '删除',
-                confirm: '确定移除吗？',
-                call: (row) => {}
+                // confirm: '确定移除吗？',
+                call: (row) => {
+                  this.$refs['NormalForm'].open()
+                }
               }
             ]
           }
@@ -104,6 +109,26 @@ export default {
             'pageSize': 100,
             list: [{snowId:1}]
           }
+        }
+      },
+      normalForm: {
+        list (data) {
+          return [
+            {
+              tag: 'Select',
+              label: '跟进状态',
+              prop: 'status',
+              bind: { options: [] }
+            },
+            {
+              tag: 'Input',
+              label: '跟进信息',
+              prop: 'content'
+            },
+          ]
+        },
+        async submit (o) {
+          console.log(123)
         }
       }
     }

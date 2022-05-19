@@ -48,7 +48,7 @@
 </template>
 <script>
 import Pagination from "./coms/pages.vue"
-import { JsxRender } from "@/components/render"
+import { JsxRender } from "@/components/render/index.jsx"
 import NoramlTabs from "./coms/tabs.vue"
 import NoramlForm from "./coms/form.vue"
 
