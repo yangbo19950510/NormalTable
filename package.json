@@ -1,7 +1,7 @@
 {
-  "name": "normaltable",
+  "name": "el-normaltable",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.1",
   "main": "dist/normaltable.es.js",
   "author": "ni的名字",
   "description": "基于element二次封装",

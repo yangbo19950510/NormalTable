@@ -94,7 +94,9 @@ export default {
                 label: '删除',
                 // confirm: '确定移除吗？',
                 call: (row) => {
-                  this.$refs['NormalForm'].open()
+                  this.$refs['NormalForm'].open('提示',{
+                    con111tent: 1
+                  })
                 }
               }
             ]
@@ -112,6 +114,9 @@ export default {
         }
       },
       normalForm: {
+        dialogBind: {
+          width: '600px'
+        },
         list (data) {
           return [
             {
@@ -125,10 +130,31 @@ export default {
               label: '跟进信息',
               prop: 'content'
             },
+            {
+              tag: 'Radio',
+              label: '跟进信息',
+              prop: 'con111tent',
+              bind: {
+                options: [
+                  {
+                    label: '测试1',
+                    value: 1
+                  },
+                  {
+                    label: '测试1',
+                    value: 2
+                  },
+                  {
+                    label: '测试2',
+                    value: 3
+                  }
+                ]
+              }
+            },
           ]
         },
         async submit (o) {
-          console.log(123)
+          console.log(o, 'oooo')
         }
       }
     }

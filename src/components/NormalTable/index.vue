@@ -58,6 +58,7 @@ export default {
   props: {
     tables: {
       type: Object,
+      required: true,
       default: () => {}
     }
   },

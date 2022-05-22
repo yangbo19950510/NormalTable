@@ -1,6 +1,5 @@
 <template>
   <el-dialog
-    width="1000px"
     :title="title"
     :visible.sync="dialogStatus"
     v-bind="dialogBind"
@@ -29,15 +28,17 @@
 import { JsxRender } from "@/components/render"
 import { EVENT_NAME, COMPONENTS_NAME } from '@/components/constants.js'
 import NormalSelect from "@/components/NormalSelect/index.vue"
+import NormalRadio from "@/components/NormalRadio/index.vue"
 import NormalPicker from "@/components/NormalDate/datePicker.vue"
 import NormalDate from "@/components/NormalDate/date.vue"
 // import { debounce } from '@/utils/decorator'
 export default {
   name: 'NormalForm',
-  components: { NormalSelect, NormalDate, NormalPicker, JsxRender },
+  components: { NormalSelect, NormalDate, NormalPicker, NormalRadio, JsxRender },
   props: {
     normalForm: {
       type: Object,
+      required: true,
       default: () => {}
     }
   },
@@ -55,7 +56,8 @@ export default {
       ...it.bind
     }),
     dialogBind() {
-      const { dialogBind } = this.normalForm
+      const { dialogBind = { width: '600px'} } = this.normalForm
+      console.log(dialogBind, 'dialogBind')
       return {
         ...dialogBind
       }
@@ -86,12 +88,12 @@ export default {
     }
   },
   methods: {
-    open(title = 'title', data = {}) {
+    open(title = '提示', data = {}) {
       this.title = title
       this.dialogStatus = true
       this.searchForm = JSON.parse(JSON.stringify(data))
     },
-    openFilter(title = 'title', data = {}) {
+    openFilter(title = '提示', data = {}) {
       this.title = title
       this.dialogStatus = true
       const { getFormBefore: getFormList } = this

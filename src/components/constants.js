@@ -5,5 +5,8 @@ export const COMPONENTS_NAME = {
     'DatePicker': 'NormalPicker',
     'Date': 'NormalDate',
     'Cascader': 'el-cascader',
+    'Radio': 'NormalRadio',
+    'InputNumber':'el-input-number',
+    'Switch': 'el-switch',
     'checkbox': 'el-checkbox'
 }

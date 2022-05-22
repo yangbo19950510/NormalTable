@@ -37,13 +37,13 @@ var __async = (__this, __arguments, generator) => {
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
-var render$7 = function() {
+var render$8 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c("el-pagination", _vm._g(_vm._b({ staticClass: "pagination-container" }, "el-pagination", _vm.$attrs, false), _vm.$listeners));
 };
-var staticRenderFns$7 = [];
+var staticRenderFns$8 = [];
 var pages_vue_vue_type_style_index_0_scoped_true_lang = "";
 function normalizeComponent(scriptExports, render2, staticRenderFns2, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
   var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
@@ -96,18 +96,18 @@ function normalizeComponent(scriptExports, render2, staticRenderFns2, functional
     options
   };
 }
-const __vue2_script$7 = {
+const __vue2_script$8 = {
   name: "NormalPages"
 };
-const __cssModules$7 = {};
-var __component__$7 = /* @__PURE__ */ normalizeComponent(__vue2_script$7, render$7, staticRenderFns$7, false, __vue2_injectStyles$7, "197991dc", null, null);
-function __vue2_injectStyles$7(context) {
-  for (let o in __cssModules$7) {
-    this[o] = __cssModules$7[o];
+const __cssModules$8 = {};
+var __component__$8 = /* @__PURE__ */ normalizeComponent(__vue2_script$8, render$8, staticRenderFns$8, false, __vue2_injectStyles$8, "197991dc", null, null);
+function __vue2_injectStyles$8(context) {
+  for (let o in __cssModules$8) {
+    this[o] = __cssModules$8[o];
   }
 }
 var Pagination = /* @__PURE__ */ function() {
-  return __component__$7.exports;
+  return __component__$8.exports;
 }();
 const JsxRender = {
   name: "JsxRender",
@@ -132,7 +132,7 @@ const JsxRender = {
     return h("div", [r(row)]);
   }
 };
-var render$6 = function() {
+var render$7 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -142,8 +142,8 @@ var render$6 = function() {
     return _c("el-tab-pane", { key: item.id || item.value, attrs: { "label": item.label, "name": item.id || item.value } });
   }), 1);
 };
-var staticRenderFns$6 = [];
-const __vue2_script$6 = {
+var staticRenderFns$7 = [];
+const __vue2_script$7 = {
   name: "NormalSelect",
   props: {
     tabs: {
@@ -196,15 +196,15 @@ const __vue2_script$6 = {
     }
   }
 };
-const __cssModules$6 = {};
-var __component__$6 = /* @__PURE__ */ normalizeComponent(__vue2_script$6, render$6, staticRenderFns$6, false, __vue2_injectStyles$6, null, null, null);
-function __vue2_injectStyles$6(context) {
-  for (let o in __cssModules$6) {
-    this[o] = __cssModules$6[o];
+const __cssModules$7 = {};
+var __component__$7 = /* @__PURE__ */ normalizeComponent(__vue2_script$7, render$7, staticRenderFns$7, false, __vue2_injectStyles$7, null, null, null);
+function __vue2_injectStyles$7(context) {
+  for (let o in __cssModules$7) {
+    this[o] = __cssModules$7[o];
   }
 }
 var NoramlTabs = /* @__PURE__ */ function() {
-  return __component__$6.exports;
+  return __component__$7.exports;
 }();
 const EVENT_NAME = ["click", "change", "input", "clear", "clear", "blur", "focus"];
 const COMPONENTS_NAME = {
@@ -213,9 +213,12 @@ const COMPONENTS_NAME = {
   "DatePicker": "NormalPicker",
   "Date": "NormalDate",
   "Cascader": "el-cascader",
+  "Radio": "NormalRadio",
+  "InputNumber": "el-input-number",
+  "Switch": "el-switch",
   "checkbox": "el-checkbox"
 };
-var render$5 = function() {
+var render$6 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -223,8 +226,8 @@ var render$5 = function() {
     return _c("el-option", { key: item.value, attrs: { "label": item.label, "value": item.value, "disabled": item.disabled } });
   }), 1);
 };
-var staticRenderFns$5 = [];
-const __vue2_script$5 = {
+var staticRenderFns$6 = [];
+const __vue2_script$6 = {
   name: "NormalSelect",
   props: ["value", "options", "onchange"],
   data() {
@@ -254,24 +257,24 @@ const __vue2_script$5 = {
     }
   }
 };
-const __cssModules$5 = {};
-var __component__$5 = /* @__PURE__ */ normalizeComponent(__vue2_script$5, render$5, staticRenderFns$5, false, __vue2_injectStyles$5, null, null, null);
-function __vue2_injectStyles$5(context) {
-  for (let o in __cssModules$5) {
-    this[o] = __cssModules$5[o];
+const __cssModules$6 = {};
+var __component__$6 = /* @__PURE__ */ normalizeComponent(__vue2_script$6, render$6, staticRenderFns$6, false, __vue2_injectStyles$6, null, null, null);
+function __vue2_injectStyles$6(context) {
+  for (let o in __cssModules$6) {
+    this[o] = __cssModules$6[o];
   }
 }
 var NormalSelect = /* @__PURE__ */ function() {
-  return __component__$5.exports;
+  return __component__$6.exports;
 }();
-var render$4 = function() {
+var render$5 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c("el-date-picker", _vm._b({ staticStyle: { "width": "395px" }, attrs: { "value": _vm.value, "range-separator": "\u81F3", "start-placeholder": _vm.startPlaceholder, "end-placeholder": _vm.endPlaceholder, "value-format": _vm.valueFormat, "default-time": _vm.defaultTime, "type": _vm.type }, on: { "input": _vm.changeDate } }, "el-date-picker", _vm.$attrs, false));
 };
-var staticRenderFns$4 = [];
-const __vue2_script$4 = {
+var staticRenderFns$5 = [];
+const __vue2_script$5 = {
   name: "DatePicker",
   props: {
     value: {
@@ -309,24 +312,24 @@ const __vue2_script$4 = {
     }
   }
 };
-const __cssModules$4 = {};
-var __component__$4 = /* @__PURE__ */ normalizeComponent(__vue2_script$4, render$4, staticRenderFns$4, false, __vue2_injectStyles$4, null, null, null);
-function __vue2_injectStyles$4(context) {
-  for (let o in __cssModules$4) {
-    this[o] = __cssModules$4[o];
+const __cssModules$5 = {};
+var __component__$5 = /* @__PURE__ */ normalizeComponent(__vue2_script$5, render$5, staticRenderFns$5, false, __vue2_injectStyles$5, null, null, null);
+function __vue2_injectStyles$5(context) {
+  for (let o in __cssModules$5) {
+    this[o] = __cssModules$5[o];
   }
 }
 var NormalPicker = /* @__PURE__ */ function() {
-  return __component__$4.exports;
+  return __component__$5.exports;
 }();
-var render$3 = function() {
+var render$4 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c("el-date-picker", _vm._g(_vm._b({ attrs: { "value": _vm.value, "type": _vm.type, "value-format": _vm.valueFormat }, on: { "input": _vm.changeDate } }, "el-date-picker", _vm.$attrs, false), _vm.$listeners));
 };
-var staticRenderFns$3 = [];
-const __vue2_script$3 = {
+var staticRenderFns$4 = [];
+const __vue2_script$4 = {
   name: "NormalDate",
   props: {
     value: {
@@ -350,17 +353,17 @@ const __vue2_script$3 = {
     }
   }
 };
-const __cssModules$3 = {};
-var __component__$3 = /* @__PURE__ */ normalizeComponent(__vue2_script$3, render$3, staticRenderFns$3, false, __vue2_injectStyles$3, null, null, null);
-function __vue2_injectStyles$3(context) {
-  for (let o in __cssModules$3) {
-    this[o] = __cssModules$3[o];
+const __cssModules$4 = {};
+var __component__$4 = /* @__PURE__ */ normalizeComponent(__vue2_script$4, render$4, staticRenderFns$4, false, __vue2_injectStyles$4, null, null, null);
+function __vue2_injectStyles$4(context) {
+  for (let o in __cssModules$4) {
+    this[o] = __cssModules$4[o];
   }
 }
 var NormalDate = /* @__PURE__ */ function() {
-  return __component__$3.exports;
+  return __component__$4.exports;
 }();
-var render$2 = function() {
+var render$3 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -377,8 +380,8 @@ var render$2 = function() {
     } } }, "el-button", _vm.getBtnBind(btn), false), [_vm._v(_vm._s(btn.label))]) : _vm._e()];
   })]], 2);
 };
-var staticRenderFns$2 = [];
-const __vue2_script$2 = {
+var staticRenderFns$3 = [];
+const __vue2_script$3 = {
   name: "NormalForm",
   components: { NormalSelect, NormalPicker, NormalDate },
   props: {
@@ -436,17 +439,17 @@ const __vue2_script$2 = {
     }
   }
 };
-const __cssModules$2 = {};
-var __component__$2 = /* @__PURE__ */ normalizeComponent(__vue2_script$2, render$2, staticRenderFns$2, false, __vue2_injectStyles$2, null, null, null);
-function __vue2_injectStyles$2(context) {
-  for (let o in __cssModules$2) {
-    this[o] = __cssModules$2[o];
+const __cssModules$3 = {};
+var __component__$3 = /* @__PURE__ */ normalizeComponent(__vue2_script$3, render$3, staticRenderFns$3, false, __vue2_injectStyles$3, null, null, null);
+function __vue2_injectStyles$3(context) {
+  for (let o in __cssModules$3) {
+    this[o] = __cssModules$3[o];
   }
 }
 var NoramlForm = /* @__PURE__ */ function() {
-  return __component__$2.exports;
+  return __component__$3.exports;
 }();
-var render$1 = function() {
+var render$2 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -463,14 +466,15 @@ var render$1 = function() {
     } }], null, true) }) : _c("el-table-column", _vm._b({ key: item.label }, "el-table-column", _vm.getColumns(item), false))];
   })], 2), _vm.isPageShow ? _c("Pagination", _vm._b({ on: { "current-change": _vm.changePage } }, "Pagination", _vm.getPagesBind, false)) : _vm._e()] : _vm._e()], 2);
 };
-var staticRenderFns$1 = [];
+var staticRenderFns$2 = [];
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
-const __vue2_script$1 = {
+const __vue2_script$2 = {
   name: "NormalTable",
   components: { JsxRender, NoramlForm, NoramlTabs, Pagination },
   props: {
     tables: {
       type: Object,
+      required: true,
       default: () => {
       }
     }
@@ -590,21 +594,73 @@ const __vue2_script$1 = {
     }
   }
 };
+const __cssModules$2 = {};
+var __component__$2 = /* @__PURE__ */ normalizeComponent(__vue2_script$2, render$2, staticRenderFns$2, false, __vue2_injectStyles$2, "44726e6f", null, null);
+function __vue2_injectStyles$2(context) {
+  for (let o in __cssModules$2) {
+    this[o] = __cssModules$2[o];
+  }
+}
+var NormalTable = /* @__PURE__ */ function() {
+  return __component__$2.exports;
+}();
+var render$1 = function() {
+  var _vm = this;
+  var _h = _vm.$createElement;
+  var _c = _vm._self._c || _h;
+  return _c("el-radio-group", { on: { "change": _vm.handleChange }, model: { value: _vm.radioValue, callback: function($$v) {
+    _vm.radioValue = $$v;
+  }, expression: "radioValue" } }, _vm._l(_vm.options, function(item) {
+    return _c("el-radio", { key: item.value, attrs: { "label": item.value, "disabled": item.disabled } }, [_vm._v(" " + _vm._s(item.label) + " ")]);
+  }), 1);
+};
+var staticRenderFns$1 = [];
+const __vue2_script$1 = {
+  name: "NormalRadio",
+  props: {
+    options: {
+      type: Array,
+      default: []
+    },
+    value: {
+      type: [String, Number, Boolean],
+      default: (v) => v != null ? v : ""
+    }
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(val) {
+        this.radioValue = val;
+      }
+    }
+  },
+  data() {
+    return {
+      radioValue: ""
+    };
+  },
+  methods: {
+    handleChange(v) {
+      this.$emit("input", v);
+    }
+  }
+};
 const __cssModules$1 = {};
-var __component__$1 = /* @__PURE__ */ normalizeComponent(__vue2_script$1, render$1, staticRenderFns$1, false, __vue2_injectStyles$1, "f68d7b84", null, null);
+var __component__$1 = /* @__PURE__ */ normalizeComponent(__vue2_script$1, render$1, staticRenderFns$1, false, __vue2_injectStyles$1, null, null, null);
 function __vue2_injectStyles$1(context) {
   for (let o in __cssModules$1) {
     this[o] = __cssModules$1[o];
   }
 }
-var NormalTable = /* @__PURE__ */ function() {
+var NormalRadio = /* @__PURE__ */ function() {
   return __component__$1.exports;
 }();
 var render = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("el-dialog", _vm._b({ attrs: { "width": "1000px", "title": _vm.title, "visible": _vm.dialogStatus }, on: { "update:visible": function($event) {
+  return _c("el-dialog", _vm._b({ attrs: { "title": _vm.title, "visible": _vm.dialogStatus }, on: { "update:visible": function($event) {
     _vm.dialogStatus = $event;
   } } }, "el-dialog", _vm.dialogBind, false), [_c("el-form", { ref: "normalForm", attrs: { "model": _vm.searchForm, "label-width": _vm.normalForm.labelWidth || "180px" } }, _vm._l(_vm.getFormList, function(item) {
     return _c("el-form-item", _vm._b({ key: item.prop, class: _vm.normalForm.inline ? "form_itme" : "" }, "el-form-item", _vm.allBind(item), false), [item.render ? _c("JsxRender", { attrs: { "r": item.render, "row": _vm.searchForm } }) : _vm.componentsData[item.tag] ? _c(_vm.componentsData[item.tag], _vm._g(_vm._b({ tag: "component", model: { value: _vm.searchForm[item.prop], callback: function($$v) {
@@ -616,10 +672,11 @@ var staticRenderFns = [];
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
 const __vue2_script = {
   name: "NormalForm",
-  components: { NormalSelect, NormalDate, NormalPicker, JsxRender },
+  components: { NormalSelect, NormalDate, NormalPicker, NormalRadio, JsxRender },
   props: {
     normalForm: {
       type: Object,
+      required: true,
       default: () => {
       }
     }
@@ -637,7 +694,8 @@ const __vue2_script = {
       placeholder: it.label
     }, it.bind),
     dialogBind() {
-      const { dialogBind } = this.normalForm;
+      const { dialogBind = { width: "600px" } } = this.normalForm;
+      console.log(dialogBind, "dialogBind");
       return __spreadValues({}, dialogBind);
     },
     allBind: (_) => ({ prop, label, rules, bind }) => __spreadProps(__spreadValues({}, bind), {
@@ -665,12 +723,12 @@ const __vue2_script = {
     }
   },
   methods: {
-    open(title = "title", data = {}) {
+    open(title = "\u63D0\u793A", data = {}) {
       this.title = title;
       this.dialogStatus = true;
       this.searchForm = JSON.parse(JSON.stringify(data));
     },
-    openFilter(title = "title", data = {}) {
+    openFilter(title = "\u63D0\u793A", data = {}) {
       this.title = title;
       this.dialogStatus = true;
       const { getFormBefore: getFormList } = this;
@@ -715,7 +773,7 @@ const __vue2_script = {
   }
 };
 const __cssModules = {};
-var __component__ = /* @__PURE__ */ normalizeComponent(__vue2_script, render, staticRenderFns, false, __vue2_injectStyles, "de458280", null, null);
+var __component__ = /* @__PURE__ */ normalizeComponent(__vue2_script, render, staticRenderFns, false, __vue2_injectStyles, "0bae71f6", null, null);
 function __vue2_injectStyles(context) {
   for (let o in __cssModules) {
     this[o] = __cssModules[o];
