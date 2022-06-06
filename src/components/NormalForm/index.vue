@@ -29,12 +29,14 @@ import { JsxRender } from "@/components/render"
 import { EVENT_NAME, COMPONENTS_NAME } from '@/components/constants.js'
 import NormalSelect from "@/components/NormalSelect/index.vue"
 import NormalRadio from "@/components/NormalRadio/index.vue"
+import NormalUpload from "@/components/NormalUpload/index.vue"
+import NormalCheckbox from "@/components/NormalCheckbox/index.vue"
 import NormalPicker from "@/components/NormalDate/datePicker.vue"
 import NormalDate from "@/components/NormalDate/date.vue"
 // import { debounce } from '@/utils/decorator'
 export default {
   name: 'NormalForm',
-  components: { NormalSelect, NormalDate, NormalPicker, NormalRadio, JsxRender },
+  components: { NormalSelect, NormalDate, NormalPicker, NormalRadio, NormalCheckbox, NormalUpload, JsxRender },
   props: {
     normalForm: {
       type: Object,

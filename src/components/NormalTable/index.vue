@@ -149,11 +149,7 @@ export default {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
           type: "warning"
-        }).then(() => {
-          resove()
-        }).catch(() => {
-          reject()
-        })
+        }).then(resove).catch(reject)
       })
     },
     handleBtn(row, btn) {

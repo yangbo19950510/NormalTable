@@ -77,6 +77,11 @@ export default {
             prop: 'snowId',
             label: 'ID',
             width: '140px',
+            render: ()=>{
+              return <div>
+                <i class="el-icon-edit"></i>
+              </div>
+            }
           },
           {
             prop: 'ddd123',
@@ -95,7 +100,7 @@ export default {
                 // confirm: '确定移除吗？',
                 call: (row) => {
                   this.$refs['NormalForm'].open('提示',{
-                    con111tent: 1
+                    con111tent: [1, 2]
                   })
                 }
               }
@@ -126,12 +131,17 @@ export default {
               bind: { options: [] }
             },
             {
+              tag: 'Upload',
+              label: '跟进信息',
+              prop: 'con111tent111'
+            },
+            {
               tag: 'Input',
               label: '跟进信息',
               prop: 'content'
             },
             {
-              tag: 'Radio',
+              tag: 'Checkbox',
               label: '跟进信息',
               prop: 'con111tent',
               bind: {
@@ -141,11 +151,11 @@ export default {
                     value: 1
                   },
                   {
-                    label: '测试1',
+                    label: '测试2',
                     value: 2
                   },
                   {
-                    label: '测试2',
+                    label: '测试3',
                     value: 3
                   }
                 ]

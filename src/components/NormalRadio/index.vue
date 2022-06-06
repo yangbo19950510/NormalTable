@@ -1,6 +1,6 @@
 <template>
   <!-- 设置value后 change不生效 -->
-  <el-radio-group v-model="radioValue" @change="handleChange">
+  <el-radio-group v-model="radioValue" @change="handleChange" v-bind="$attrs" v-on="$listeners" >
     <el-radio
       v-for="item in options"
       :key="item.value"

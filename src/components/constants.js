@@ -3,10 +3,11 @@ export const COMPONENTS_NAME = {
     'Input': 'el-input',
     'Select': 'NormalSelect',
     'DatePicker': 'NormalPicker',
+    'Upload': 'NormalUpload',
     'Date': 'NormalDate',
     'Cascader': 'el-cascader',
     'Radio': 'NormalRadio',
     'InputNumber':'el-input-number',
     'Switch': 'el-switch',
-    'checkbox': 'el-checkbox'
+    'Checkbox': 'NormalCheckbox'
 }

@@ -10,7 +10,7 @@ const JsxRender = {
       default: () => {}
     }
   },
-  render() {
+  render(createElement) {
     const { r, row } = this
     return (
       <div>{r(row)}</div>

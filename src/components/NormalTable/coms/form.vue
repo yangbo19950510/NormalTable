@@ -29,10 +29,12 @@ import { EVENT_NAME, COMPONENTS_NAME } from '@/components/constants.js'
 import NormalSelect from "@/components/NormalSelect/index.vue"
 import NormalPicker from "@/components/NormalDate/datePicker.vue"
 import NormalDate from "@/components/NormalDate/date.vue"
+import NormalRadio from "@/components/NormalRadio/index.vue"
+import NormalCheckbox from "@/components/NormalCheckbox/index.vue"
 
 export default {
   name: 'NormalForm',
-  components: { NormalSelect, NormalPicker, NormalDate },
+  components: { NormalSelect, NormalPicker, NormalDate, NormalRadio, NormalCheckbox },
   props: {
     tablesFilter: {
       type: Array,

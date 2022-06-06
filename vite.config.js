@@ -1,7 +1,7 @@
 import { createVuePlugin } from 'vite-plugin-vue2'
 import { defineConfig } from "vite"
-import legacy from '@vitejs/plugin-legacy'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import langJsx from 'vite-plugin-lang-jsx'
+// import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
 
 function resolves(dir) {
@@ -20,10 +20,14 @@ export default defineConfig({
     mainFiles: ['index']
   },
   plugins: [
+    langJsx(),
     createVuePlugin({
-      jsx: true
+      jsx: true,
+      // jsxOptions: {
+      //   compositionAPI: true
+      // }
     }),
-    vueJsx(),
+    // vueJsx(),
     // legacy({
     //   // for ie11
     //   targets: ['ie >= 11', 'chrome >= 42'],

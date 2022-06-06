@@ -9,7 +9,6 @@ const Components = {
 // 参考：https://cn.vuejs.org/v2/guide/plugins.html#%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6
 // 此处注意，组件需要添加name属性，代表注册的组件名称，也可以修改成其他的
 const install = function (Vue) {
-  console.log(Vue.component, 'install')
   // 判断是否安装
   // if (install.installed) return
   // 遍历注册全局组件

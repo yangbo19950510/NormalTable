@@ -6,11 +6,6 @@ module.exports = {
       "corejs": "3.22.5", 
       "targets": {
         "chrome": "58"
-      // "browsers": [
-      //   "last 2 versions",
-      //   "not ie <= 9"
-      // ],
-      // node: 8
       }
     }], "@vue/babel-preset-jsx",],
   "plugins": [
