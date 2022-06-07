@@ -1,7 +1,7 @@
 {
   "name": "el-normaltable",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "dist/normaltable.es.js",
   "author": "ni的名字",
   "description": "基于element二次封装",
@@ -24,7 +24,6 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@vitejs/plugin-vue-jsx": "^1.3.9",
     "@vue/babel-preset-jsx": "^1.2.4",
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
@@ -34,7 +33,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^5.1.9",
     "vite": "^2.8.0",
-    "vite-plugin-lang-jsx": "^1.3.3",
+    "vite-plugin-vue2": "^2.0.1",
     "vue-template-compiler": "^2.6.14"
   },
   "dependencies": {
@@ -44,7 +43,6 @@
     "@vitejs/plugin-vue": "^2.2.2",
     "core-js": "^3.22.5",
     "element-ui": "^2.15.7",
-    "vite-plugin-vue2": "^1.9.3",
     "vue": "^2.6.14"
   },
   "browserslist": [

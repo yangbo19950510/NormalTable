@@ -7,7 +7,7 @@ module.exports = {
       "targets": {
         "chrome": "58"
       }
-    }], "@vue/babel-preset-jsx",],
+    }], "@vue/babel-preset-jsx"],
   "plugins": [
     ["@babel/plugin-transform-runtime"],
     "@babel/plugin-proposal-optional-chaining",
