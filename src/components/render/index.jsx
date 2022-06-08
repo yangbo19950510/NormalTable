@@ -13,7 +13,7 @@ const JsxRender = {
   render(createElement) {
     const { r, row } = this
     return (
-      <div>{r(row)}</div>
+      <div>{r(createElement, row)}</div>
     )
   }
 }

@@ -131,7 +131,7 @@ const JsxRender = {
       r,
       row
     } = this;
-    return h("div", [r(row)]);
+    return h("div", [r(createElement, row)]);
   }
 };
 var render$9 = function() {
