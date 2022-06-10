@@ -4,6 +4,8 @@
       <NoramlTabs v-if="isTabs(tables.tabs)" :tabs="tables.tabs" :change-tabs="changeTabs" />
       <!-- 筛选项 -->
       <NoramlForm v-if="tables.filter" v-bind="gather" />
+      <!-- 插槽 -->
+      <slot name="table-header"></slot>
       <!-- table -->
       <el-table
         v-loading="loading"

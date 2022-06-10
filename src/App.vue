@@ -4,7 +4,11 @@
       <el-aside width="200px">Aside</el-aside>
       <el-container>
         <el-header>123123</el-header>
-        <NormalTable ref="NormalTable" :tables="tables" />
+        <NormalTable ref="NormalTable" :tables="tables" >
+          <!-- <template v-slot:table-header>
+            <h1>Here might be a page title</h1>
+          </template> -->
+        </NormalTable>
       </el-container>
     </el-container>
     <NormalForm ref="NormalForm" :normalForm="normalForm" />
@@ -35,7 +39,7 @@ export default {
             label: '状态',
             prop: 'status',
             bind: {
-              options: [],
+              options: this.getList
             }
           },
           {
@@ -163,7 +167,7 @@ export default {
           //   console.log(123123)
           // }
         },
-        list (data) {
+        list: (data) => {
           // const isStatusShow = data.id === 1
           return [
             {
@@ -171,7 +175,7 @@ export default {
               // hide: isStatusShow,
               prop: 'status',
               render(row) {
-                return 
+                return 123
               }
             },
             {
@@ -192,20 +196,7 @@ export default {
                 { required: true, message: '请填写活动形式', trigger: 'blur' }
               ],
               bind: {
-                options: [
-                  {
-                    label: '测试1',
-                    value: 1
-                  },
-                  {
-                    label: '测试2',
-                    value: 2
-                  },
-                  {
-                    label: '测试3',
-                    value: 3
-                  }
-                ]
+                options: []
               }
             },
           ]
