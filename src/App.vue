@@ -26,14 +26,16 @@ export default {
   },
   data() {
     return {
-      aaa: '',
       tables: {
+        filterLabel: true, // filter中始终显示label
         filter: [
           {
             tag: 'Input',
-            label: '姓名/手机号',
-            hide: true,
-            prop: 'nameOrMobile'
+            label: '姓名/手机号:',
+            prop: 'nameOrMobile',
+            bind: {
+              // defaultValue: 123
+            }
           },{
             tag: 'Select',
             label: '状态',
@@ -44,37 +46,31 @@ export default {
           },
           {
             tag: 'Select',
-            label: '状态333',
+            label: '状态333:',
             prop: 'props123',
             bind: {
               // clearable: true,
               // multiple: true,
-              value: 1,
-              options: [{
-                label: '状态1',
-                value: 1
-              },{
-                label: '状态2',
-                value: 2
-              }]
+              // defaultValue: 1,
+              options: this.getList
             }
           },{
             tag: 'DatePicker',
-            label: '测试开始日期',
+            label: '测试稍等稍等都是开始日期:',
             prop: 'time',
             bind: {
               startPlaceholder:"空档开1始日期",
               endPlaceholder: "空档结111束日期"
             }
           },
-          {
-            tag: 'Date1',
-            label: '测试开始日期',
-            prop: 't12ime',
-            // render() {
-            //   return 123
-            // }
-          },
+          // {
+          //   tag: 'Date1',
+          //   label: '测试开始日期',
+          //   prop: 't12ime',
+          //   // render() {
+          //   //   return 123
+          //   // }
+          // },
           // {
           //   tag: 'DatePicker',
           //   label: '测试开始日期',
@@ -100,6 +96,11 @@ export default {
         columns: [
           {
             type: 'selection'
+          },
+          {
+            type: 'Img',
+            label: '图片',
+            prop: 'img'
           },
           {
             prop: 'snowId',
@@ -156,7 +157,7 @@ export default {
             ...pagination,
             total: 1000,
             'pageSize': 100,
-            list: [{ddd: 123, id: 1}]
+            list: [{ddd: 123, id: 1, img:[]}]
           }
         }
       },
@@ -212,7 +213,9 @@ export default {
   methods: {
     getList() {
       return new Promise((resolve, reject) => {
-        resolve([{value: 1, label: 'zhuangtia1'}] )
+        setTimeout(() => {
+          resolve([{value: 1, label: 'zhuangtia1'}] )
+        }, 1000);
       })
       // return  [{value: 1, label: 'zhuangtia1'}] 
     }

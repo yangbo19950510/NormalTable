@@ -224,6 +224,9 @@ var NoramlTabs = /* @__PURE__ */ function() {
   return __component__$9.exports;
 }();
 const EVENT_NAME = ["click", "change", "input", "clear", "clear", "blur", "focus"];
+const TYPE_COMPONENTS_NAME = {
+  Img: "NormalImg"
+};
 const COMPONENTS_NAME = {
   "Input": "el-input",
   "Select": "NormalSelect",
@@ -637,6 +640,22 @@ const __vue2_script$3 = {
       searchForm: {}
     };
   },
+  watch: {
+    tablesFilter: {
+      handler: function(filterFrom) {
+        const defaultFrom = {};
+        filterFrom.map((it) => {
+          var _a;
+          const defaultValue = (_a = it == null ? void 0 : it.bind) == null ? void 0 : _a.defaultValue;
+          defaultValue && (defaultFrom[it.prop] = defaultValue);
+        });
+        const { searchForm } = this;
+        this.searchForm = __spreadValues(__spreadValues({}, searchForm), defaultFrom);
+        this.handleSearch();
+      },
+      immediate: true
+    }
+  },
   computed: {
     getBindAll: (_) => (it) => {
       const { options: op } = (it == null ? void 0 : it.bind) || {};
@@ -690,7 +709,7 @@ var render$2 = function() {
       "tabs": _vm.tables.tabs,
       "change-tabs": _vm.changeTabs
     }
-  }) : _vm._e(), _vm.tables.filter ? _c("NoramlForm", _vm._b({}, "NoramlForm", _vm.gather, false)) : _vm._e(), _c("el-table", _vm._g(_vm._b({
+  }) : _vm._e(), _vm.tables.filter ? _c("NoramlForm", _vm._b({}, "NoramlForm", _vm.gather, false)) : _vm._e(), _vm._t("table-header"), _c("el-table", _vm._g(_vm._b({
     directives: [{
       name: "loading",
       rawName: "v-loading",
@@ -753,7 +772,11 @@ var render$2 = function() {
           })];
         }
       }], null, true)
-    }) : _c("el-table-column", _vm._b({
+    }) : _vm.typeMatching(item.type) ? _c("el-table-column", {
+      attrs: {
+        "label": item.label
+      }
+    }, [_vm._v(" 123123 ")]) : _c("el-table-column", _vm._b({
       key: item.label
     }, "el-table-column", _vm.getColumns(item), false))];
   })], 2), _vm.isPageShow ? _c("Pagination", _vm._b({
@@ -826,18 +849,18 @@ const __vue2_script$2 = {
     getBtnBind: (_) => (btn) => {
       var _a;
       return (_a = btn == null ? void 0 : btn.bind) != null ? _a : {};
+    },
+    typeMatching: (_) => (type) => {
+      return TYPE_COMPONENTS_NAME[type];
     }
   },
   mounted() {
     this.init();
   },
-  activated() {
-    this.init();
-  },
   methods: {
     init() {
       const { isTabs, tables } = this;
-      if (!isTabs(tables.tabs)) {
+      if (!isTabs(tables.tabs) && !tables.filter) {
         this.getList();
       }
     },
@@ -853,6 +876,7 @@ const __vue2_script$2 = {
           currentTab,
           pagination: curPage
         };
+        console.log("aaa");
         try {
           this.datas = (yield onSearch(data)) || [];
         } catch (e) {
@@ -887,7 +911,7 @@ const __vue2_script$2 = {
   }
 };
 const __cssModules$2 = {};
-var __component__$2 = /* @__PURE__ */ normalizeComponent(__vue2_script$2, render$2, staticRenderFns$2, false, __vue2_injectStyles$2, "4d6f58f5", null, null);
+var __component__$2 = /* @__PURE__ */ normalizeComponent(__vue2_script$2, render$2, staticRenderFns$2, false, __vue2_injectStyles$2, "2d209404", null, null);
 function __vue2_injectStyles$2(context) {
   for (let o in __cssModules$2) {
     this[o] = __cssModules$2[o];

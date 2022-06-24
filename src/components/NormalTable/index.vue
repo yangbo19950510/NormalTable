@@ -40,6 +40,10 @@
               </template>
             </template>
           </el-table-column>
+          <!-- 是否有type -->
+          <el-table-column :label="item.label" v-else-if="typeMatching(item.type)">
+            123123
+          </el-table-column>
           <!-- 纯文本内容 -->
           <el-table-column v-else :key="item.label" v-bind="getColumns(item)" />
         </template>
@@ -53,6 +57,7 @@ import Pagination from "./coms/pages.vue"
 import { JsxRender } from "@/components/render/index.jsx"
 import NoramlTabs from "./coms/tabs.vue"
 import NoramlForm from "./coms/form.vue"
+import { TYPE_COMPONENTS_NAME } from '../constants'
 
 export default {
   name: 'NormalTable',
@@ -111,19 +116,20 @@ export default {
         currentPage
       }
     },
-    getBtnBind: _ => btn => btn?.bind ?? {}
+    getBtnBind: _ => btn => btn?.bind ?? {},
+    // type是否匹配
+    typeMatching: _ => type => {
+      return TYPE_COMPONENTS_NAME[type]
+    },
   },
   mounted() {
     this.init()
   },
-  activated() {
-    this.init()
-  },
   methods: {
     init() {
-      // 无tabs直接执行getlist
+      // 无tabs同时无filter直接执行getlist
       const { isTabs, tables } = this
-      if (!isTabs(tables.tabs)) {
+      if (!isTabs(tables.tabs) && !tables.filter) {
         this.getList()
       }
     },

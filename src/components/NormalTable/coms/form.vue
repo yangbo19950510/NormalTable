@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-form ref="normalForm" :model="searchForm" :inline="true" size="small">
-      <el-form-item v-for="item in tablesFilter" :key="item.prop" :prop="item.prop">
+      <el-form-item v-for="item in tablesFilter" :key="item.prop" v-bind="getFilterBind(item)">
         <component :is="componentsData[item.tag]" v-model="searchForm[item.prop]" clearable v-bind="getBindAll(item)" v-on="getEventsAll(item)" />
       </el-form-item>
       <el-form-item>
@@ -31,7 +31,6 @@ import NormalPicker from "@/components/NormalDate/datePicker.vue"
 import NormalDate from "@/components/NormalDate/date.vue"
 import NormalRadio from "@/components/NormalRadio/index.vue"
 import NormalCheckbox from "@/components/NormalCheckbox/index.vue"
-
 export default {
   name: 'NormalForm',
   components: { NormalSelect, NormalPicker, NormalDate, NormalRadio, NormalCheckbox },
@@ -55,12 +54,26 @@ export default {
       searchForm: {}
     }
   },
+  watch: {
+    // 默认值赋值
+    tablesFilter: {
+      handler: function(filterFrom) {
+        const defaultFrom = {}
+        filterFrom.map(it => {
+          const defaultValue = it?.bind?.defaultValue
+          defaultValue && (defaultFrom[it.prop] = defaultValue)
+        })
+        const { searchForm } = this
+        this.searchForm = {...searchForm, ...defaultFrom}
+        // 初始化
+        this.handleSearch()
+      },
+      immediate: true
+    }
+  },
   computed: {
     getBindAll: _ => it => {
-      const { options: op } = it?.bind || {}
-      const options = typeof op === 'function' ? op?.() : op
       return {
-        ...(options && { options }),
         placeholder: it.label,
         ...it.bind
       }
@@ -75,7 +88,14 @@ export default {
       })
       return eventsAll
     },
-    getBtnBind: _ => btn => btn?.bind ?? {}
+    getBtnBind: _ => btn => btn?.bind ?? {},
+    getFilterBind: _ => it => {
+      return {
+        prop: it.prop,
+        label: it.label,
+        'label-width': '100px'
+      }
+    }
   },
   methods: {
     handleSearch() {
@@ -90,3 +110,10 @@ export default {
   }
 }
 </script>
+<style scope>
+.el-form-item__label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
