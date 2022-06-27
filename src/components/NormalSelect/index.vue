@@ -24,8 +24,7 @@ export default {
       handler() {
         this.init()
       },
-      immediate: true,
-      deep: true
+      immediate: true
     }
   },
   methods: {

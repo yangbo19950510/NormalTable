@@ -54,6 +54,7 @@ export default {
   },
   computed: {
     getBindAll: _ => ({ label,  bind }) => {
+      console.log(bind, 'bind')
       return {
         placeholder: label,
         ...bind

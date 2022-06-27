@@ -190,14 +190,14 @@ export default {
               }
             },
             {
-              tag: 'Checkbox',
+              tag: 'Radio',
               label: '跟进信息',
               prop: 'con111tent',
               rules:  [
                 { required: true, message: '请填写活动形式', trigger: 'blur' }
               ],
               bind: {
-                options: []
+                options: this.getList
               }
             },
           ]
