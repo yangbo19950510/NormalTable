@@ -22,6 +22,12 @@
               <jsxRender :r="item.render" :row="scope.row"/>
             </template>
           </el-table-column>
+          <!-- 是否有type -->
+          <el-table-column :label="item.label" v-else-if="typeMatching(item.type)">
+            <template slot-scope="scope">
+              <component :is="TYPE_COMPONENTS_NAME[item.type]" :prop="scope.row[item.prop]" />
+            </template>
+          </el-table-column>
           <!-- 是否有btns-->
           <el-table-column v-else-if="item.btns" :key="item.label" :label="item.label" :fixed="item.fixed || false" :width="item.width || '120px'" align="center">
             <template slot-scope="scope">
@@ -40,10 +46,6 @@
               </template>
             </template>
           </el-table-column>
-          <!-- 是否有type -->
-          <el-table-column :label="item.label" v-else-if="typeMatching(item.type)">
-            123123
-          </el-table-column>
           <!-- 纯文本内容 -->
           <el-table-column v-else :key="item.label" v-bind="getColumns(item)" />
         </template>
@@ -57,11 +59,12 @@ import Pagination from "./coms/pages.vue"
 import { JsxRender } from "@/components/render/index.jsx"
 import NoramlTabs from "./coms/tabs.vue"
 import NoramlForm from "./coms/form.vue"
+import NormalImg from "./coms/NormalImg.vue"
 import { TYPE_COMPONENTS_NAME } from '../constants'
 
 export default {
   name: 'NormalTable',
-  components: { JsxRender, NoramlForm, NoramlTabs, Pagination },
+  components: { JsxRender, NoramlForm, NoramlTabs, NormalImg, Pagination },
   props: {
     tables: {
       type: Object,
@@ -71,6 +74,7 @@ export default {
   },
   data() {
     return {
+      TYPE_COMPONENTS_NAME,
       datas: {
         list: []
       },

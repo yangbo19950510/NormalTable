@@ -1,35 +1,38 @@
 <template>
-  <el-upload
-    class="avatar-uploader"
-    action="https://jsonplaceholder.typicode.com/posts/"
-    :show-file-list="false"
-    :on-success="handleAvatarSuccess"
-    :before-upload="beforeAvatarUpload">
-    <img v-if="imageUrl" :src="imageUrl" class="avatar">
-    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-  </el-upload>
+  <div>
+    <el-upload
+      action="#"
+      list-type="picture-card"
+      :on-preview="handlePictureCardPreview"
+      :on-remove="handleRemove"
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
+      <i class="el-icon-plus"></i>
+    </el-upload>
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt="">
+    </el-dialog>
+  </div>
 </template>
 <script>
 export default {
   name: 'NormalUpload',
-  props: {
-    options: {
-      type: Array,
-      default: []
-    },
-    value: {
-      type: Array,
-      default: v => v ?? []
-    },
-  },
   data() {
     return {
+      dialogImageUrl: '',
+      dialogVisible: false,
       imageUrl: []
     }
   },
   methods: {
-    handleAvatarSuccess(res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw);
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePictureCardPreview(file) {
+      console.log('handlePictureCardPreview')
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
     }
   },
 }

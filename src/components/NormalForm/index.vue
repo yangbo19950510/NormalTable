@@ -54,7 +54,6 @@ export default {
   },
   computed: {
     getBindAll: _ => ({ label,  bind }) => {
-      console.log(bind, 'bind')
       return {
         placeholder: label,
         ...bind
@@ -62,7 +61,6 @@ export default {
     },
     dialogBind() {
       const { dialogBind = { width: '600px'} } = this.normalForm
-      console.log(dialogBind, 'dialogBind')
       return {
         ...dialogBind
       }

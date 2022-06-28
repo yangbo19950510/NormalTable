@@ -120,9 +120,13 @@ export default {
             label: '测12222试',
             width: '140px',
             render: (row) => {
-              
               return row.snowId === 1 ? '测试1' : '测试2'
             }
+          },
+          {
+            prop: 'img',
+            label: '测12222试',
+            type: 'Img'
           },
           {
           label: '操作',
@@ -157,7 +161,7 @@ export default {
             ...pagination,
             total: 1000,
             'pageSize': 100,
-            list: [{ddd: 123, id: 1, img:[]}]
+            list: [{ddd: 123, id: 1, img: ['https://gimg3.baidu.com/search/src=http%3A%2F%2Fpics4.baidu.com%2Ffeed%2Fb7003af33a87e95072727419c701dd49fbf2b426.jpeg%3Ftoken%3Dbe6c9e98435e9d39a525a7ea254a933d&refer=http%3A%2F%2Fwww.baidu.com&app=2021&size=f360,240&n=0&g=0n&q=75&fmt=auto?sec=1656522000&t=e64ef9ef184678fb8850b2ad60ba9499', 'https://gimg3.baidu.com/search/src=http%3A%2F%2Fpics7.baidu.com%2Ffeed%2F34fae6cd7b899e5146495720f5885439c9950dfc.jpeg%3Ftoken%3D1469f937ff1c3032fd1483ee764fe255&refer=http%3A%2F%2Fwww.baidu.com&app=2021&size=f360,240&n=0&g=0n&q=75&fmt=auto?sec=1656522000&t=97d444d8e6fa51a08bf0b242832e51d9']}]
           }
         }
       },
@@ -190,14 +194,11 @@ export default {
               }
             },
             {
-              tag: 'Radio',
+              tag: 'Upload',
               label: '跟进信息',
               prop: 'con111tent',
-              rules:  [
-                { required: true, message: '请填写活动形式', trigger: 'blur' }
-              ],
               bind: {
-                options: this.getList
+                action: ''
               }
             },
           ]
