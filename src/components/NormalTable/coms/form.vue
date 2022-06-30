@@ -39,6 +39,10 @@ export default {
       type: Array,
       default: () => []
     },
+    isShowLabel: { // filter是否显示label
+      type: Boolean,
+      default: false
+    },
     operations: {
       type: Array,
       default: () => []
@@ -89,12 +93,15 @@ export default {
       return eventsAll
     },
     getBtnBind: _ => btn => btn?.bind ?? {},
-    getFilterBind: _ => it => {
-      return {
+    getFilterBind() {
+      const { isShowLabel } = this
+      return (it) => ({
         prop: it.prop,
-        label: it.label,
-        'label-width': '100px'
-      }
+        ...(isShowLabel && {
+          label: it.label,
+          'label-width': '100px'
+        })
+      })
     }
   },
   methods: {

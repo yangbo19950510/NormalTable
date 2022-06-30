@@ -7,7 +7,7 @@ NormalTable配置
     tag: 'Select', 
     label: '状态',
     prop: 'status',
-    bind: { // 可传入element所哟最短
+    bind: { // 可传入element任意属性
         options: this.getList // 可为数组或函数，可同步可异步
         defaultValue // 初始化参数
     }

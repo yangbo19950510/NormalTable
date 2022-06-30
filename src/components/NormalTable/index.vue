@@ -3,7 +3,7 @@
     <template v-if="tables.columns">
       <NoramlTabs v-if="isTabs(tables.tabs)" :tabs="tables.tabs" :change-tabs="changeTabs" />
       <!-- 筛选项 -->
-      <NoramlForm v-if="tables.filter" v-bind="gather" />
+      <NoramlForm v-if="tables.filter" v-bind="gather" :isShowLabel="tables.isShowFilterLabel" />
       <!-- 插槽 -->
       <slot name="table-header"></slot>
       <!-- table -->

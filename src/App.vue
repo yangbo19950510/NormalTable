@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       tables: {
-        filterLabel: true, // filter中始终显示label
+        isShowFilterLabel: false, // filter中始终显示label
         filter: [
           {
             tag: 'Input',
