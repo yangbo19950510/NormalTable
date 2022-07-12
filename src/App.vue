@@ -136,19 +136,35 @@ export default {
               {
                 label: '添加',
                 hide: isShowAdd,
+                // type: 'text',
                 // confirm: '确定移除吗？',
                 call: (row) => {
-                  console.log(row, '一点击确认')
-                  this.$refs['NormalForm'].open('添加',row)
+                  row = JSON.parse(JSON.stringify(row))
+                  // const a = ["https://gimg3.baidu.com/search/src=http%3A%2F%2Fpics4.baidu.com%2Ffeed%2Fb7003af33a87e95072727419c701dd49fbf2b426.jpeg%3Ftoken%3Dbe6c9e98435e9d39a525a7ea254a933d&refer=http%3A%2F%2Fwww.baidu.com&app=2021&size=f360,240&n=0&g=0n&q=75&fmt=auto?sec=1656522000&t=e64ef9ef184678fb8850b2ad60ba9499"]
+                  row.img = row.img.map((i, index) => {
+                    return {
+                      url: i,
+                      key: index + Date.now() + ''
+                    }
+                  })
+                  
+                  this.$refs['NormalForm'].open('添加', row)
                 }
               },
               {
                 label: '删除',
+                // type: 'text',
                 // confirm: '确定移除吗？',
                 call: (row) => {
                   // this.$refs['NormalForm'].open('提示',{
                   //   con111tent: [1, 2]
                   // })
+                }
+              },
+              {
+                label: '测dddd试',
+                call:() => {
+                  
                 }
               }
             ]
@@ -196,16 +212,14 @@ export default {
             {
               tag: 'Upload',
               label: '跟进信息',
-              prop: 'con111tent',
+              prop: 'img',
               bind: {
-                action: ''
+                action: 'https://jsonplaceholder.typicode.com/posts/'
               }
             },
           ]
         },
         async submit (values) {
-        //  await post()
-         return true
           console.log(values, 'oooo')
         }
       }

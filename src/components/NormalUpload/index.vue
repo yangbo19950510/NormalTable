@@ -1,10 +1,11 @@
 <template>
   <div>
     <el-upload
-      action="#"
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
       :on-remove="handleRemove"
+      :on-change="handleChange"
+      :file-list="fileList"
       v-bind="$attrs"
       v-on="$listeners"
     >
@@ -18,19 +19,39 @@
 <script>
 export default {
   name: 'NormalUpload',
+  props: {
+    value: {
+      type: [Array],
+      default: v => {
+        return v || []
+      }
+    },
+  },
+  watch: {
+    value: {
+    	immediate: true,
+    	handler(val) {
+      	this.fileList = val
+      }
+    },
+  },
   data() {
     return {
+      fileList: [],
       dialogImageUrl: '',
       dialogVisible: false,
-      imageUrl: []
     }
   },
   methods: {
+    // 文件上传成功
+    handleChange(file, fileList) {
+      this.$emit('input', fileList)
+    },
+    // 文件移除
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
-      console.log('handlePictureCardPreview')
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
     }

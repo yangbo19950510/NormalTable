@@ -35,7 +35,7 @@
                 <el-button
                   v-if="!btn.hide"
                   :key="index"
-                  class="normalButton"
+                  :class="['tableBtns', btn.type === 'text' && 'tableBtnsText']"
                   :size="btn.size || 'mini'"
                   :type="btn.type || 'info'"
                   v-bind="getBtnBind(btn)"
@@ -184,8 +184,13 @@ export default {
 }
 </script>
 <style scoped>
-.normalButton{
+.tableBtns{
   margin-top: 4px;
   margin-bottom: 4px;
+  margin-left:0!important;
+}
+/* type为text则必须加大间距 */
+.tableBtnsText {
+  margin-right: 10px;
 }
 </style>
