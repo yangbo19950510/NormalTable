@@ -5,7 +5,7 @@
     style="width: 395px;"
     :start-placeholder="startPlaceholder"
     :end-placeholder="endPlaceholder"
-    :value-format="valueFormat"
+    :value-format="getValueFormat"
     :default-time="defaultTime"
     :type="type"
     v-bind="$attrs"
@@ -13,6 +13,7 @@
   />
 </template>
 <script>
+import { DATE_FORMAT } from '../constants'
 export default {
   name: 'DatePicker',
   props: {
@@ -30,11 +31,10 @@ export default {
     },
     type: {
       type: String,
-      default: 'daterange'
+      default: 'daterange',
     },
     valueFormat: {
-      type: String,
-      default: 'yyyy-MM-dd'
+      type: String
     },
     startPlaceholder: {
       type: String,
@@ -43,6 +43,13 @@ export default {
     endPlaceholder: {
       type: String,
       default: '结束日期'
+    }
+  },
+  computed: {
+    getValueFormat() {
+      const { valueFormat, type } = this
+      console.log(valueFormat, 'valueFormat')
+      return valueFormat || DATE_FORMAT[type] || ''
     }
   },
   methods: {
