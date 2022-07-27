@@ -59,7 +59,7 @@ export default {
             label: '测试稍等稍等都是开始日期:',
             prop: 'time',
             bind: {
-              type: 'datetimerange',
+              // type: 'datetimerange',
               // valueFormat: 'yyyy-MM-dd: HH-mm-ss',
               startPlaceholder:"空档开1始日期",
               endPlaceholder: "空档结111束日期",
