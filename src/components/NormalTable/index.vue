@@ -185,9 +185,7 @@ export default {
 </script>
 <style scoped>
 .tableBtns{
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left:0!important;
+  margin: 4px 10px 4px 0!important;
 }
 /* type为text则必须加大间距 */
 .tableBtnsText {

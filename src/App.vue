@@ -142,6 +142,7 @@ export default {
           },
           {
           label: '操作',
+          width: 300,
           btns: (row) => {
             const isShowAdd = row.id !== 1
             return [
